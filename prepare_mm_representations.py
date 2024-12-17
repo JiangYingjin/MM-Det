@@ -72,7 +72,7 @@ if __name__ == "__main__":
     config = parse_args(opt).__dict__
     output_dir = config["output_dir"]
     output_fn = config["output_fn"]
-    config["lmm_ckpt"] = "sparklexfantasy/llava-1.5-7b-rfrd"
+    config["lmm_ckpt"] = "sparklexfantasy/llava-7b-1.5-rfrd"
     config["load_4bit"] = False
     model = MMEncoder(config)
     visual_model = model.model.get_vision_tower().vision_tower
