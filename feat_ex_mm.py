@@ -4,7 +4,6 @@ from models import MMEncoder
 from options.base_options import BaseOption
 from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM
 
-
 def extract_mm_features(image_path):
     """
     提取单张图片的多模态特征
