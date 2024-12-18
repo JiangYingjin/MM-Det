@@ -3,6 +3,7 @@ from PIL import Image
 from models import MMEncoder
 from options.base_options import BaseOption
 from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM
+import numpy as np
 
 # 全局变量存储模型实例
 _mm_model = None
@@ -45,9 +46,9 @@ def extract_mm_features(image):
             img = Image.open(image).convert("RGB")
         elif isinstance(image, Image.Image):
             img = image
-        elif isinstance(image, (torch.Tensor, list, tuple)):
+        elif isinstance(image, (torch.Tensor, list, tuple, np.ndarray)):
             # 处理从get_video_frames返回的numpy数组
-            img = Image.fromarray(image).convert("RGB")
+            img = Image.fromarray(np.uint8(image)).convert("RGB")
         else:
             raise TypeError("输入图像必须是路径字符串、PIL Image对象或numpy数组")
 
