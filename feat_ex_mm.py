@@ -4,6 +4,7 @@ from models import MMEncoder
 from options.base_options import BaseOption
 from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM
 
+
 def extract_mm_features(image_path):
     """
     提取单张图片的多模态特征
@@ -43,10 +44,14 @@ def extract_mm_features(image_path):
             "textual": mm_layer_features,
         }
 
+        # 保存特征到文件
+        torch.save(features, "out/mm_feat1.pt")
+        print("特征已保存到 out/mm_feat1.pt")
+
         return features
 
 
 if __name__ == "__main__":
     # 测试用例
-    image_path = "/root/proj/MM-Det/data/WallStreet_01.jpg"
+    image_path = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/WallStreet_01.jpg"
     features = extract_mm_features(image_path)

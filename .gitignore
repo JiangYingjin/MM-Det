@@ -168,3 +168,5 @@ cython_debug/
 sparklexfantasy
 data/*
 !data/rfrd/
+
+out
