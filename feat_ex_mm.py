@@ -4,6 +4,29 @@ from models import MMEncoder
 from options.base_options import BaseOption
 from LLaVA.llava.model.language_model.llava_llama import LlavaLlamaForCausalLM
 
+# 全局变量存储模型实例
+_mm_model = None
+
+
+def get_mm_model():
+    """
+    获取多模态模型的单例实例
+    Returns:
+        MMEncoder: 多模态编码器模型实例
+    """
+    global _mm_model
+    if _mm_model is None:
+        # 配置
+        opt = BaseOption()
+        config = opt.parse().__dict__
+
+        # 加载模型
+        config["lmm_ckpt"] = "sparklexfantasy/llava-7b-1.5-rfrd"
+        config["load_4bit"] = False
+        _mm_model = MMEncoder(config)
+        _mm_model.eval()
+    return _mm_model
+
 
 def extract_mm_features(image):
     """
@@ -13,15 +36,8 @@ def extract_mm_features(image):
     Returns:
         dict: 包含visual和textual特征的字典
     """
-    # 配置
-    opt = BaseOption()
-    config = opt.parse().__dict__
-
-    # 加载模型
-    config["lmm_ckpt"] = "sparklexfantasy/llava-7b-1.5-rfrd"
-    config["load_4bit"] = False
-    model = MMEncoder(config)
-    model.eval()
+    # 获取模型实例
+    model = get_mm_model()
 
     # 处理图像
     with torch.inference_mode():
