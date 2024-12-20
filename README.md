@@ -13,14 +13,18 @@ This repository is the official implementation of [MM-Det](https://arxiv.org/abs
 
 ## Contents
 
-- [Environment](#environment)
-- [Dataset](#diffusion-video-forensics-dataset)
-- [Data Preparation](#preparation)
-  - [Pre-trained Weights](#pre-trained-weights)
-  - [Reconstruction Process](#reconstruction-dataset)
-  - [Multi-Modal Forgery Representation](#multi-modal-forgery-representation)
-- [Evaluation](#evaluation)
-- [Training](#training)
+- [\[NeurIPS 2024\] On Learning Multi-Modal Forgery Representation for Diffusion Generated Video Detection](#neurips-2024-on-learning-multi-modal-forgery-representation-for-diffusion-generated-video-detection)
+  - [Contents](#contents)
+  - [Environment](#environment)
+  - [Diffusion Video Forensics Dataset](#diffusion-video-forensics-dataset)
+  - [Preparation](#preparation)
+    - [Pre-trained Weights](#pre-trained-weights)
+    - [Reconstruction Dataset](#reconstruction-dataset)
+    - [Multi-Modal Forgery Representation](#multi-modal-forgery-representation)
+  - [Evaluation](#evaluation)
+  - [Training](#training)
+  - [Acknowledgement](#acknowledgement)
+  - [Citation](#citation)
 
 ## Environment
 
@@ -41,7 +45,7 @@ pip install flash-attn==2.5.8 --no-build-isolation
 ```
 
 ## Diffusion Video Forensics Dataset
-We release Diffusion Video Forensics (DVF) as the benchmark for forgery video detection, which can be downloaded via links: [BaiduNetDisk](https://pan.baidu.com/s/1vDCocTRWedmktmzcP903pQ?pwd=KuRo)(Code: KuRo). [google driver](https://drive.google.com/drive/folders/1NxCvJVPSxV2Mib5NaNj5Cf2WnnjrqpMb?usp=drive_link)
+We release Diffusion Video Forensics (DVF) as the benchmark for forgery video detection, which can be downloaded via links: [BaiduNetDisk](https://pan.baidu.com/s/14d-_jLB_yUwKzOosrMHMvg?pwd=296c)(Code: 296c). [google driver](https://drive.google.com/drive/folders/1NxCvJVPSxV2Mib5NaNj5Cf2WnnjrqpMb?usp=drive_link)
 
 <table class="center">
     <tr>
@@ -56,11 +60,11 @@ We provide the [weights](https://huggingface.co/sparklexfantasy/llava-7b-1.5-rfr
 
 ### Reconstruction Dataset
 
-For all videos in DVF, we provide a ready reconstruction dataset at [BaiduNetDisk](https://pan.baidu.com/s/1oJarzo09jx8Tc1L3GihdSA?pwd=moyu) (Code: moyu).
+For all videos in DVF, we provide a ready reconstruction dataset at [BaiduNetDisk](https://pan.baidu.com/s/1a0sWzGXfkBfblV1wZ70qsQ?pwd=l8h4) (Code: l8h4).
 
 ### Multi-Modal Forgery Representation
 
-For all videos in DVF, we provide a ready dataset for cached MMFR at [BaiduNetDisk](https://pan.baidu.com/s/1ODAfIMRzXlroXG30i5_Bcg?pwd=Haru) (Code: Haru). Since the representation is fixed during training and inference, it is recommended to cache the representation before the overall training to reduce time cost. 
+For all videos in DVF, we provide a ready dataset for cached MMFR at [BaiduNetDisk](https://pan.baidu.com/s/1kuybGikCfxs8CnTnxWI-gQ?pwd=m6uy) (Code: m6uy). Since the representation is fixed during training and inference, it is recommended to cache the representation before the overall training to reduce time cost. 
 
 ## Evaluation
 
