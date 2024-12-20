@@ -240,12 +240,12 @@ def list_pt_files(base_dir):
 
 
 if __name__ == "__main__":
-    # input_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/genvideo/val"
-    # output_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val"
-    # process_video_directory(input_dir, output_dir)
+    input_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/genvideo/val"
+    output_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val"
+    process_video_directory(input_dir, output_dir)
 
-    base_dir = (
-        "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val/fake/Crafter"
-    )
-    pt_files = list_pt_files(base_dir)
-    print('\n'.join(pt_files))
+    # base_dir = (
+    #     "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val/fake/Crafter"
+    # )
+    # pt_files = list_pt_files(base_dir)
+    # print('\n'.join(pt_files))
