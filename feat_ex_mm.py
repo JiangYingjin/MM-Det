@@ -240,8 +240,8 @@ def list_pt_files(base_dir):
 
 
 if __name__ == "__main__":
-    input_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/genvideo/val"
-    output_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val"
+    input_dir = "/root/proj/MM-Det/data/genvideo/val"
+    output_dir = "/root/proj/MM-Det/features/mm/genvideo/val"
     process_video_directory(input_dir, output_dir)
 
     # base_dir = (
