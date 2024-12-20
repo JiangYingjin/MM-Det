@@ -1,3 +1,4 @@
+# %%
 import torch
 from PIL import Image
 from models import MMEncoder
@@ -207,7 +208,44 @@ def process_video_directory(input_dir, output_dir):
     print(complete_msg)
 
 
+def list_pt_files(base_dir):
+    """列出指定目录下所有的.pt文件并按自然顺序排序
+
+    Args:
+        base_dir (str): 基础目录路径
+
+    Returns:
+        list: 排序后的.pt文件列表
+    """
+    import re
+    from pathlib import Path
+
+    # 构建完整路径
+    target_dir = Path(base_dir)
+    # 获取所有.pt文件
+    pt_files = list(target_dir.glob("*.pt"))
+
+    # 自然排序
+    def natural_sort_key(path):
+        # 提取文件名中的数字部分用于排序
+        numbers = re.findall(r"\d+", path.name)
+        if numbers:
+            return int(numbers[0])
+        return path.name
+
+    # 按自然顺序排序
+    sorted_files = sorted(pt_files, key=natural_sort_key)
+
+    return [str(f) for f in sorted_files]
+
+
 if __name__ == "__main__":
-    input_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/genvideo/val"
-    output_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val"
-    process_video_directory(input_dir, output_dir)
+    # input_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/data/genvideo/val"
+    # output_dir = "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val"
+    # process_video_directory(input_dir, output_dir)
+
+    base_dir = (
+        "/U_20240905_ZSH_SMIL/jyj/proj/MM-Det/features/mm/genvideo/val/fake/Crafter"
+    )
+    pt_files = list_pt_files(base_dir)
+    print('\n'.join(pt_files))
