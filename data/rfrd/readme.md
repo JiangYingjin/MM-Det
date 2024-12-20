@@ -4,7 +4,8 @@ To finetune large multi-modal models on forgery detection, we construct a text-i
 
 Based on these descriptions, we build up an instruction-based dataset for fine-tuning. This dataset contains up to 38k conversations on 5,500 images, which can be achieved at [rfrd](https://drive.google.com/drive/folders/1buMlUlmxpBfmmF00eXMkzvdJKIXEApvw?usp=sharing).
 
-`rfrd.json` contains the overall descriptions, while `rfrd_train.json` is a subset which only contains all training data without validation data to avoid data leakage.
+
+In `rfrd`, the `rfrd.json` contains the overall descriptions, while `rfrd_train.json` is a subset which only contains all training data without validation data to avoid data leakage.
 
 #### Data Structure
 
