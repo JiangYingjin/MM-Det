@@ -1,3 +1,28 @@
+import subprocess
+import sys
+
+
+def install_dependencies():
+    """安装必要的依赖包"""
+    dependencies = ["modelscope", "datasets", "oss2", "addict"]
+
+    for package in dependencies:
+        try:
+            # 尝试导入包以检查是否已安装
+            __import__(package)
+            print(f"{package} 已安装")
+        except ImportError:
+            print(f"正在安装 {package}...")
+            try:
+                subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+                print(f"{package} 安装成功")
+            except subprocess.CalledProcessError as e:
+                print(f"{package} 安装失败: {str(e)}")
+
+
+install_dependencies()
+
+
 from modelscope.msdatasets.download.download_manager import DataStreamingDownloadManager
 from modelscope.msdatasets.download.download_config import DataDownloadConfig
 from modelscope.hub.api import HubApi
