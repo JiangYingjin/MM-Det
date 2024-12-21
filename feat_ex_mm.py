@@ -8,6 +8,7 @@ import numpy as np
 
 # 全局变量存储模型实例
 _mm_model = None
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def get_mm_model():
@@ -26,6 +27,7 @@ def get_mm_model():
         config["lmm_ckpt"] = "sparklexfantasy/llava-7b-1.5-rfrd"
         config["load_4bit"] = False
         _mm_model = MMEncoder(config)
+        _mm_model.to(device)
         _mm_model.eval()
     return _mm_model
 
